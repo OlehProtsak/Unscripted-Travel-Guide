@@ -15,7 +15,7 @@ const fetchDataFromAPI = async (url) => {
   }
 };
 
-const execute = () => {
+const fetchCombinedData = () => {
   Promise.all([fetchDataFromAPI(photoshUrl), fetchDataFromAPI(countriesUrl)])
     .then((results) => {
       console.log(results[0]);
@@ -26,4 +26,4 @@ const execute = () => {
     });
 };
 
-execute();
+fetchCombinedData();
