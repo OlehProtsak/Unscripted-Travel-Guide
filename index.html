@@ -85,12 +85,42 @@
 
 
     <!-- Country Information Section -->
+    
     <section class="country bg-primary text-center" id="country">
         <div class="container">
+
+            <!-- Input form for user -->
+            <div class="row">
+                <div class="col-12">
+                  <form class="input-group">
+                    <input class="form-input" type="text" id="enterCity" placeholder="Enter a city"><button type="button"
+                      id="searchBtn" class="btn btn-info">Search</button>
+                  </form>
+                </div>
+              </div>
+            <!-- Local storage dispaying history -->
+            <div class="row mt-3">
+                <div class="col-12">
+                  <ul id="searchHistory" class="list-group"></ul>
+                </div>
+              </div>
+
+            <!-- Cards for info from rest -->
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <h2 class="section-heading">JS goes here - Type in your travel destination to learn all about it!</h2>
-                    <p>You can search for any city!</p>
+                    <h2 class="section-heading">Flag</p>
+                </div>
+                <div class="col-md-8 mx-auto">
+                    <h2 class="section-heading">Country Name</p>
+                </div>
+                <div class="col-md-8 mx-auto">
+                    <h2 class="section-heading">Capital City</p>
+                </div>
+                <div class="col-md-8 mx-auto">
+                    <h2 class="section-heading">Currency</p>
+                </div>
+                <div class="col-md-8 mx-auto">
+                    <h2 class="section-heading">Language</p>
                 </div>
             </div>
         </div>
@@ -103,8 +133,7 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="unsplash mx-auto mb-5 mb-lg-0">
-                                <h5>Type in your country to see the top sights</h5>
-                                <p class="fw-light mb-0">"Maybe input history ? "</p>
+                                <h5>Popular Sights</h5>
                             </div>
                         </div>
                         </div>
