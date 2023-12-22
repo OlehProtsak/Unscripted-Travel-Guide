@@ -75,31 +75,36 @@
                     <div class="blog-item mx-auto mb-5 mb-lg-0">
                         <img class="img-fluid rounded-circle mb-4" src="assets/images/Budapest.jpg"
                             alt="Street view of Budapest.">
-                        <h5>Budapest</h5>
-                        <p class="fw-light fs-6 mb-0">Be our guest in Budapest! You’ll have no shortage of historic sights, culture, and folklore to immerse yourself in.</p>
+                        <h5>Hungary</h5>
+                        <p class="fw-light fs-6 mb-0">Got an appetite for travel? Hungary has no shortage of historic
+                            sights, culture, and folklore to immerse yourself in.</p>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="blog-item mx-auto mb-5 mb-lg-0">
                         <img class="img-fluid rounded-circle mb-4" src="assets/images/London.jpg"
                             alt="View of Big Ben.">
-                        <h5>London</h5>
-                        <p class="fw-light fs-6 mb-0">See the city of London with it’s rich history, attractions for all ages, and diverse selection of cuisine!</p>
+                        <h5>United Kingdom</h5>
+                        <p class="fw-light fs-6 mb-0">If history, nature, and hiking is your cup of tea, the United
+                            Kingdom will deliver on all fronts with it’s unspoiled landscapes and historic cities.</p>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="blog-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-4" src="assets/images/Tokyo.jpg" alt="View of Mount Fuji.">
-                        <h5>Tokyo</h5>
-                        <p class="fw-light fs-6 mb-0">Take your time in Tokyo! You won’t be short of city sites or it’s famous gardens and historic temples.</p>
+                        <img class="img-fluid rounded-circle mb-4" src="assets/images/Tokyo.jpg"
+                            alt="View of Mount Fuji.">
+                        <h5>Japan</h5>
+                        <p class="fw-light fs-6 mb-0">Use your noodle and visit Japan! Whether a nature lover or city
+                            dweller, see it’s sprawling cities, famous gardens, and historic temples.</p>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="blog-item mx-auto mb-5 mb-lg-0">
                         <img class="img-fluid rounded-circle mb-4" src="assets/images/New York.jpg"
                             alt="Statue of Liberty.">
-                        <h5>New York</h5>
-                        <p class="fw-light fs-6 mb-0">Take the liberty of exploring New York where you can shop till you drop, or experience monumental sights!</p>
+                        <h5>America</h5>
+                        <p class="fw-light fs-6 mb-0">Take the liberty of exploring America. Famed for It’s national
+                            parks, film history, and it’s sheer size, you’ll be left starstruck.</p>
                     </div>
                 </div>
             </div>
@@ -110,38 +115,33 @@
 
     <section class="country bg-primary text-center" id="country">
         <div class="container">
-
-            <!-- Input form for user -->
+            <!-- Input form for user and local storage -->
             <div class="row">
-                <div class="col-12">
+                <div class="col">
                     <form class="input-group">
                         <input class="form-input" type="text" id="enterCity" placeholder="Enter a city">
                         <button type="submit" id="searchBtn" class="btn btn-info">Search</button>
                     </form>
+                    <div class="col-12">
+                        <ul id="searchHistory" class="list-group">History</ul>
+                    </div>
                 </div>
-            </div>
-            <!-- Local storage dispaying history -->
-            <div class="row mt-3">
-                <div class="col-12">
-                    <ul id="searchHistory" class="list-group">History</ul>
-                </div>
-            </div>
+                <!-- Cards for info from rest -->
+                <div class="col">
+                    <div id="country-info">
 
-            <!-- Cards for info from rest -->
-            <div id="country-info">
-       
+                    </div>
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- Unsplash section -->
     <section class="unsplash text-center bg-light" id="features">
-        <div class="container">
+        <div class="unsplash">
             <h2 class="mb-5">Unsplash JS put here</h2>
             <div id="country-photos" class="row">
 
             </div>
-        </div>
         </div>
     </section>
 
@@ -165,7 +165,8 @@
                             <i class="fas fa-envelope text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Email</h4>
                             <hr class="my-4" />
-                            <div class="small text-black-50"><a href="mailto:unscriptedtravelguide@gmail.com" target="_blank">unscriptedtravelguide@gmail.com</a></div>
+                            <div class="small text-black-50"><a href="mailto:unscriptedtravelguide@gmail.com"
+                                    target="_blank">unscriptedtravelguide@gmail.com</a></div>
                         </div>
                     </div>
                 </div>

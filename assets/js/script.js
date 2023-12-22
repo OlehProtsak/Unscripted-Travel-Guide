@@ -51,22 +51,27 @@ function showCountriesInfo(results) {
   const googleMaps = results[0].maps.googleMaps;
 
   $("#country-info").append(`
-    <div class="row">
-                <div class="col-md-8 mx-auto">
+  <div class="container">  
+  <div class="row">
+  <div class="col">
+  
                     <h2 class="section-heading"><img src=${flag} alt=${altFlag}/></h2>
                 </div>
-                <div class="col-md-8 mx-auto">
+                <div class="col">
+  
                     <h2 class="section-heading">Country: ${name}</h2>
-                </div>
-                <div class="col-md-8 mx-auto">
+
+  
                     <h2 class="section-heading">Capital City: ${capital}</h2>
-                </div>
-                <div class="col-md-8 mx-auto">
+
+  
                     <h2 class="section-heading">Population: ${population}</h2>
-                </div>
-                <div class="col-md-8 mx-auto">
+
+  
                     <h2 class="section-heading"><a href=${googleMaps} target="_blank">Google maps</a></h2>
+
                 </div>
+            </div>
             </div>
     `);
 }
