@@ -156,7 +156,7 @@ function addToHistory(countryName) {
 }
 
 function updateHistoryDisplay() {
-  $("#history").empty();
+  $("#searchHistory").empty();
 
   // Retrieve the search history from local storage
   const countryHistory =
