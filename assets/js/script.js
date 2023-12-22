@@ -65,7 +65,7 @@ function showCountriesInfo(results) {
                     <h2 class="section-heading">Population: ${population}</h2>
                 </div>
                 <div class="col-md-8 mx-auto">
-                    <h2 class="section-heading"><a href=${googleMaps}>Google maps</a></h2>
+                    <h2 class="section-heading"><a href=${googleMaps} target="_blank">Google maps</a></h2>
                 </div>
             </div>
     `);
@@ -92,6 +92,8 @@ function showCountryPhotos(results) {
 }
 
 function showCountryModal() {
+  $("#countryModal").remove();
+
   const modalHtml = `
       <div class="modal fade" id="countryModal" tabindex="-1" aria-labelledby="countryModalLabel" aria-hidden="true">
         <div class="modal-dialog">
