@@ -4,37 +4,60 @@ let countryName;
 const fetchDataFromAPI = async (url) => {
   try {
     const response = await fetch(url);
+
+    if (response.status === 404) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error:", error);
     throw error;
   }
 };
 
-const fetchCombinedData = () => {
+const fetchCombinedData = async () => {
   const photoshUrl = `https://api.unsplash.com/search/photos?query=${countryName}&client_id=${apiKey}`;
   const countriesUrl = `https://restcountries.com/v3.1/name/${countryName}`;
 
-  Promise.all([fetchDataFromAPI(photoshUrl), fetchDataFromAPI(countriesUrl)])
-    .then((results) => {
-      showCountryPhotos(results[0]);
-      showCountriesInfo(results[1]);
-      addToHistory(countryName);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  try {
+    const [photosApiResponse, countriesApiResponse] = await Promise.all([
+      fetchDataFromAPI(photoshUrl),
+      fetchDataFromAPI(countriesUrl),
+    ]);
+
+    showCountryPhotos(photosApiResponse);
+    showCountriesInfo(countriesApiResponse);
+    addToHistory(countryName);
+    const id = "countryModal";
+    const text = `Scroll down to see pictures of ${countryName}.`;
+    showModal(id, text, "green");
+  } catch (error) {
+    // Handle any errors from fetchDataFromAPI
+    const id = "errorModal";
+    const text = `Apologies, ${countryName} doesn't exist: Please ensure you have entered a valid country name.`;
+
+    showModal(id, text, "red");
+  }
 };
 
-$(".input-group").on("submit", function (event) {
+$(".input-group").on("submit", async function (event) {
   event.preventDefault();
   countryName = $("#enterCity").val();
 
-  if (countryName) {
-    fetchCombinedData();
-    showCountryModal();
+  if (!countryName) {
+    const id = "errorModal";
+    const text = "Please enter a country name.";
+    showModal(id, text, "red");
+    return;
   }
+
+  // Call fetchCombinedData and let it handle the logic of displaying modals
+  await fetchCombinedData();
 
   $("#enterCity").val("");
 });
@@ -96,22 +119,26 @@ function showCountryPhotos(results) {
   });
 }
 
-function showCountryModal() {
-  $("#countryModal").remove();
+function showModal(id, text, color) {
+  if ($(`#${id}`).length) {
+    $(`#${id}`).remove();
+  }
 
   const modalHtml = `
-      <div class="modal fade" id="countryModal" tabindex="-1" aria-labelledby="countryModalLabel" aria-hidden="true">
+      <div class="modal fade" id=${id} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby=${id}Label aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="countryModalLabel">Country Information</h5>
+              <h5 class="modal-title" id=${id}Label style="color: ${color};">Country Information</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Scroll down to see pictures of ${countryName}.
-              <div id="country-info"></div>
-              <div id="country-photos" class="row"></div>
+              ${text}
             </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+          </div>
+    
           </div>
         </div>
       </div>
@@ -119,7 +146,7 @@ function showCountryModal() {
 
   $("body").append(modalHtml);
 
-  $("#countryModal").modal("show");
+  $(`#${id}`).modal("show");
 }
 
 function addToHistory(countryName) {
