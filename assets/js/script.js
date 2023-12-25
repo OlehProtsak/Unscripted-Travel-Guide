@@ -2,22 +2,10 @@ const apiKey = "k9SrgKI8_B-JaT2ZrodZDd4IshQVVK8viOCG1HZQlL0";
 let countryName;
 
 const fetchDataFromAPI = async (url) => {
-  try {
-    const response = await fetch(url);
+  const response = await fetch(url);
 
-    if (response.status === 404) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    throw error;
-  }
+  const data = await response.json();
+  return data;
 };
 
 const fetchCombinedData = async () => {
