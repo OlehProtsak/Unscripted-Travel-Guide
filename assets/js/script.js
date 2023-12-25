@@ -171,10 +171,7 @@ function addToHistory(countryName) {
   // Check if the country is already in the search history
   if (Array.isArray(existingHistory)) {
     for (let i = 0; i < existingHistory.length; i++) {
-      if (
-        existingHistory[i].toLowerCase() ===
-        capitalizedCountryName.toLowerCase()
-      ) {
+      if (existingHistory[i] === capitalizedCountryName) {
         result = true;
       }
     }
@@ -209,7 +206,7 @@ function updateHistoryDisplay() {
   // Append each country button to the #searchHistory element
   countryHistory.forEach((country) => {
     $("#searchHistory").append(
-      `<li><button type="button" class="btn btn-secondary mb-2" data-country=${country.toLowerCase()}>${country}</button></li>`
+      `<li><button type="button" class="btn btn-secondary mb-2" data-country=${country}>${country}</button></li>`
     );
   });
 }
