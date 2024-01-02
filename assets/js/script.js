@@ -20,29 +20,28 @@ const fetchCombinedData = async () => {
   const photosUrl = `https://api.unsplash.com/search/photos?query=${countryName}&client_id=${apiKey}`;
   const countriesUrl = `https://restcountries.com/v3.1/name/${countryName}`;
 
-  // Fetch data from the Restcountries API
-  const countriesApiResponse = await fetchDataFromAPI(countriesUrl);
+  try {
+    // Fetch data from both APIs concurrently
+    const [photosApiResponse, countriesApiResponse] = await Promise.all([
+      fetchDataFromAPI(photosUrl),
+      fetchDataFromAPI(countriesUrl),
+    ]);
 
-  // Check if the Restcountries API call was successful and returned valid country information
-  if (!countriesApiResponse || countriesApiResponse.status === 404) {
+    // Display country photos and information, and update search history
+    showCountryPhotos(photosApiResponse);
+    showCountriesInfo(countriesApiResponse);
+    addToHistory(countryName);
+
+    // Show a success modal with a green title
+    const id = "countryModal";
+    const text = `Scroll down to see pictures of ${countryName}.`;
+    showModal(id, text, "green");
+  } catch (error) {
+    // Handle errors, show an error modal with a red title
     const id = "errorModal";
-    const text = `Apologies, ${countryName} is not a country: Please ensure you have entered a valid country name.`;
+    const text = `Apologies, ${countryName} doesn't exist: Please ensure you have entered a valid country name.`;
     showModal(id, text, "red");
-    return;
   }
-
-  // Fetch data from the Unsplash API
-  const photosApiResponse = await fetchDataFromAPI(photosUrl);
-
-  // Display country photos and information, and update search history
-  showCountryPhotos(photosApiResponse);
-  showCountriesInfo(countriesApiResponse);
-  addToHistory(countryName);
-
-  // Show a success modal with a green title
-  const id = "countryModal";
-  const successText = `Scroll down to see pictures of ${countryName}.`;
-  showModal(id, successText, "green");
 };
 
 // Event listener for form submission
@@ -87,19 +86,20 @@ function showCountriesInfo(results) {
     <div class="container">  
       <div class="row">
         <div class="col">
-          <h2 class="section-heading"><img src=${flag} alt=${altFlag}/></h2>
+          <h3 class="section-heading"><img src=${flag} alt=${altFlag}/></h3>
         </div>
         <div class="col">
-          <h2 class="section-heading">Country: ${name}</h2>
-          <h2 class="section-heading">Capital City: ${capital}</h2>
-          <h2 class="section-heading">Population: ${population}</h2>
-          <h2 class="section-heading"><a href=${googleMaps} target="_blank">Google maps</a></h2>
+          <h3 class="section-heading">Country: ${name}</h3>
+          <h3 class="section-heading">Capital City: ${capital}</h3>
+          <h3 class="section-heading">Population: ${population}</h3>
+          <h3 class="section-heading"><a href=${googleMaps} target="_blank">Google maps</a></h3>
         </div>
       </div>
     </div>
   `);
-  $("a").css("color", "black");
+  $('a').css('color', 'black');
 }
+
 
 // Function to display country photos on the webpage
 function showCountryPhotos(results) {
@@ -108,6 +108,10 @@ function showCountryPhotos(results) {
 
   // Extract relevant information from the Unsplash API response (photos)
   const photos = results.results.slice(0, 4);
+
+    // Show/Hide Element
+ $('#features').removeClass('hide').addClass( "show" );
+ 
 
   // Append HTML content for each photo to the #country-photos element
   photos.forEach((photo) => {
@@ -124,6 +128,8 @@ function showCountryPhotos(results) {
     `);
   });
 }
+
+
 
 // Function to display a modal with a specified ID, text, and title color
 function showModal(id, text, color) {

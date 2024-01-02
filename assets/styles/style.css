@@ -37,14 +37,15 @@ hr.light {
   border-color: white;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h4, h5 {
   font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
   font-weight: 200;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
+  font-weight: 180;
   letter-spacing: 1px;
 }
 
@@ -205,6 +206,10 @@ section.unsplash .unsplash-item {
 section.unsplash .unsplash-item img {
   max-width: 12rem;
   box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+
+.hide {
+  display: none;
 }
 
 /* Contact CSS */
