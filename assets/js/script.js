@@ -20,28 +20,29 @@ const fetchCombinedData = async () => {
   const photosUrl = `https://api.unsplash.com/search/photos?query=${countryName}&client_id=${apiKey}`;
   const countriesUrl = `https://restcountries.com/v3.1/name/${countryName}`;
 
-  try {
-    // Fetch data from both APIs concurrently
-    const [photosApiResponse, countriesApiResponse] = await Promise.all([
-      fetchDataFromAPI(photosUrl),
-      fetchDataFromAPI(countriesUrl),
-    ]);
+  // Fetch data from the Restcountries API
+  const countriesApiResponse = await fetchDataFromAPI(countriesUrl);
 
-    // Display country photos and information, and update search history
-    showCountryPhotos(photosApiResponse);
-    showCountriesInfo(countriesApiResponse);
-    addToHistory(countryName);
-
-    // Show a success modal with a green title
-    const id = "countryModal";
-    const text = `Scroll down to see pictures of ${countryName}.`;
-    showModal(id, text, "green");
-  } catch (error) {
-    // Handle errors, show an error modal with a red title
+  // Check if the Restcountries API call was successful and returned valid country information
+  if (!countriesApiResponse || countriesApiResponse.status === 404) {
     const id = "errorModal";
-    const text = `Apologies, ${countryName} doesn't exist: Please ensure you have entered a valid country name.`;
+    const text = `Apologies, ${countryName} is not a country: Please ensure you have entered a valid country name.`;
     showModal(id, text, "red");
+    return;
   }
+
+  // Fetch data from the Unsplash API
+  const photosApiResponse = await fetchDataFromAPI(photosUrl);
+
+  // Display country photos and information, and update search history
+  showCountryPhotos(photosApiResponse);
+  showCountriesInfo(countriesApiResponse);
+  addToHistory(countryName);
+
+  // Show a success modal with a green title
+  const id = "countryModal";
+  const successText = `Scroll down to see pictures of ${countryName}.`;
+  showModal(id, successText, "green");
 };
 
 // Event listener for form submission
