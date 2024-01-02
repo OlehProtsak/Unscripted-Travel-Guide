@@ -18,7 +18,7 @@ ul {
 }
 
 .history {
-justify-content: left;
+  justify-content: left;
 }
 
 a:hover,
@@ -37,7 +37,10 @@ hr.light {
   border-color: white;
 }
 
-h1, h2, h4, h5 {
+h1,
+h2,
+h4,
+h5 {
   font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
   font-weight: 200;
   letter-spacing: 1px;
@@ -336,4 +339,22 @@ footer ul li a.active {
 .btn-xl {
   font-size: 11px;
   padding: 15px 45px;
+}
+
+.flag-container {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+}
+
+.country-info {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+#country-info span {
+  font-weight: bold;
 }

@@ -84,23 +84,24 @@ function showCountriesInfo(results) {
 
   // Append HTML content for country information to the #country-info element
   $("#country-info").append(`
-    <div class="container">  
-      <div class="row">
-        <div class="col">
-          <h3 class="section-heading"><img src=${flag} alt=${altFlag}/></h3>
-        </div>
-        <div class="col">
-          <h3 class="section-heading">Country: ${name}</h3>
-          <h3 class="section-heading">Capital City: ${capital}</h3>
-          <h3 class="section-heading">Population: ${population}</h3>
-          <h3 class="section-heading"><a href=${googleMaps} target="_blank">Google maps</a></h3>
-        </div>
+  <div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="flag-container text-center d-inline-block">
+        <img src="${flag}" alt="${altFlag}" class="img-fluid rounded" style="max-height: 200px;">
+      </div>
+      <div class="country-info mt-3">
+        <h2 class="section-heading">Country: <span>${name}</span></h2>
+        <p class="lead">Capital City: <span>${capital}</span></p>
+        <p class="lead">Population: <span>${population}</span></p>
+        <p class="lead"><a href="${googleMaps}" target="_blank" class="btn btn-primary">Explore on Google Maps</a></p>
       </div>
     </div>
+  </div>
+</div>
   `);
-  $('a').css('color', 'black');
+  $("a").css("color", "black");
 }
-
 
 // Function to display country photos on the webpage
 function showCountryPhotos(results) {
@@ -110,9 +111,8 @@ function showCountryPhotos(results) {
   // Extract relevant information from the Unsplash API response (photos)
   const photos = results.results.slice(0, 4);
 
-    // Show/Hide Element
- $('#features').removeClass('hide').addClass( "show" );
- 
+  // Show/Hide Element
+  $("#features").removeClass("hide").addClass("show");
 
   // Append HTML content for each photo to the #country-photos element
   photos.forEach((photo) => {
@@ -129,8 +129,6 @@ function showCountryPhotos(results) {
     `);
   });
 }
-
-
 
 // Function to display a modal with a specified ID, text, and title color
 function showModal(id, text, color) {
@@ -215,7 +213,7 @@ function updateHistoryDisplay() {
   // Append each country button to the #searchHistory element
   countryHistory.forEach((country) => {
     $("#searchHistory").append(
-      `<li><button type="button" class="btn btn-outline-dark" data-country=${country}>${country}</button></li>`
+      `<li><button type="button" class="btn btn-outline-dark btn-sm" data-country=${country} style="font-size: 10px;">${country}</button></li>`
     );
   });
 }
