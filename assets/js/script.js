@@ -97,6 +97,7 @@ function showCountriesInfo(results) {
       </div>
     </div>
   `);
+  $('a').css('color', 'black');
 }
 
 // Function to display country photos on the webpage
