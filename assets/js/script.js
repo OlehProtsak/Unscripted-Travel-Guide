@@ -206,7 +206,7 @@ function updateHistoryDisplay() {
   // Append each country button to the #searchHistory element
   countryHistory.forEach((country) => {
     $("#searchHistory").append(
-      `<li><button type="button" class="btn btn-secondary mb-2" data-country=${country}>${country}</button></li>`
+      `<li><button type="button" class="btn btn-outline-dark" data-country=${country}>${country}</button></li>`
     );
   });
 }

@@ -114,34 +114,41 @@
     <!-- Country Information Section -->
 
     <section class="country bg-primary text-center" id="country">
-        <div class="container">
-            <!-- Input form for user and local storage -->
+        <div class="container-fluid" style="max-width: 1400px">
             <div class="row">
-                <div class="col">
-                    <form class="input-group">
-                        <input class="form-input" type="text" id="enterCity" placeholder="Enter a city">
-                        <button type="submit" id="searchBtn" class="btn btn-info">Search</button>
-                    </form>
-                    <div class="col-12">
-                        <ul id="searchHistory" class="list-group">History</ul>
+                <aside class="col-lg-3 bg-primary pb-3" id="searchResults">
+                    <div class="row col-12 ">
+                        <h2>Search for a Country:</h2>
                     </div>
-                </div>
-                <!-- Cards for info from rest -->
-                <div class="col">
-                    <div id="country-info">
+                    <!-- Input form for user and local storage -->
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="input-group input-group-sm mb-3">
+                                <input class="form-input" type="text" id="enterCity" placeholder="Enter a city"><button
+                                    type="button" id="searchBtn" class="btn btn-dark">Search</button>
+                            </form>
+                        </div>
+                    </div>
 
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <ul id="searchHistory"></ul>
+                        </div>
                     </div>
+                </aside>
+
+                <div id="country-info" class="col-9 pb-4 pt-4">
+                    <div class="row pb-3 mr-2 ml-2"></div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Unsplash section -->
     <section class="unsplash text-center bg-light" id="features">
         <div class="unsplash">
-            <h2 class="mb-5">Unsplash JS put here</h2>
-            <div id="country-photos" class="row">
-
-            </div>
+            <h2 class="mb-5">See images of your country below...</h2>
+            <div id="country-photos" class="row"></div>
         </div>
     </section>
 

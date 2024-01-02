@@ -17,6 +17,10 @@ ul {
   list-style: none;
 }
 
+.history {
+justify-content: left;
+}
+
 a:hover,
 a:focus {
   color: #fcbd20;
