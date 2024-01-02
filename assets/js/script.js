@@ -116,7 +116,7 @@ function showCountryPhotos(results) {
     $("#country-photos").append(`
       <div class="col-lg-3">
         <div class="blog-item mx-auto mb-5 mb-lg-0">
-          <img class="img-fluid rounded-circle mb-4" src=${url} alt=${alt}>
+          <img class="img-fluid img-thumbnail mb-4" style="height:300px" src=${url} alt=${alt}>
         </div>
       </div>
     `);
