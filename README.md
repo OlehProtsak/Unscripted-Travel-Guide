@@ -39,7 +39,7 @@ If you scroll down and enter in the name of a country it will look like this:
 
 ## Credits
 
-We would like to refrence previous prohjects on our EdX bootcamp for providing us with the necessary skills to be able to complete this task effectivley. 
+We would like to refrence previous projects on our EdX bootcamp for providing us with the necessary skills to be able to complete this task effectivley. 
 
 ## License
 
