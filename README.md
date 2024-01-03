@@ -3,9 +3,9 @@
 We have created a travel guide website that will enable users to get a variety of current and relevant data for countries that they plan to travel to. This will not only prove to be incredibly useful but it will also be interesting. Along side the information, we have also linked a second API that fetches current pictures of the country
 
 * Has a dashboard with form inputs.
-* Allows a user to search for a city and then see the current weather conditions for that city.
-* Allows a user to view future weather conditions for that city and are presented with a 5-day forecast 
-* Allows a user to click on a city in the search history and are again presented with current and future conditions for that city
+* Allows a user to search for a country and then see the current metrics for the country.
+* Allows a user to view relevant images associated with the country. 
+* Allows a user to click on a country in the search history and will again be presented with the information for that country.
 
 ## Installation
 
@@ -13,16 +13,20 @@ To open the project please follow this link:
 
 ## Usage 
 
-Once you open the URL, you will see the following:
+Once you open the URL, you will see the following: https://olehprotsak.github.io/Unscripted-Travel-Guide/
 
-![This is the first thing you will see after opening the website]()
+![This is the first thing you will see after opening the website](assets/images/Website1.png)
+
+If you scroll down and enter in the name of a country it will look like this:
+
+![This is how it will look after you enter in a country name](assets/images/Website.png)
 
 
 ## Badges
 
-![GitHub deployments](https://img.shields.io/github/deployments/anamorai/Weatherforecast/github-pages)
-![GitHub top language](https://img.shields.io/github/languages/top/anamorai/Weatherforecast)
-
+![GitHub deployments](https://img.shields.io/github/deployments/OlehProtsak/Unscripted-Travel-Guide/github-pages)
+![GitHub language count](https://img.shields.io/github/languages/count/OlehProtsak/Unscripted-Travel-Guide)
+![GitHub top language](https://img.shields.io/github/languages/top/OlehProtsak/Unscripted-Travel-Guide)
 
 ## Features
 
@@ -35,7 +39,7 @@ Once you open the URL, you will see the following:
 
 ## Credits
 
-We would like to refrence ...
+We would like to refrence previous prohjects on our EdX bootcamp for providing us with the necessary skills to be able to complete this task effectivley. 
 
 ## License
 
